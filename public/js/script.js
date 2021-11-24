@@ -1,5 +1,13 @@
 $(document).ready(function () {
-    $('#table_id').DataTable();
+
+
+
+    $("#table-cursos").dataTable({
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
+        },
+        "order": [[ 2, "desc" ]]
+    });
 });
 
 function getLocation() {
@@ -10,14 +18,7 @@ function getLocation() {
     }
 }
 
-function showPosition(position) {
 
-    $('#longitude').val(position.coords.latitude)
-    $('#latitude').val(position.coords.longitude)
-
-    $('#form').submit();
-
-}
 
 function showError(error) {
     switch (error.code) {

@@ -9,8 +9,20 @@ class CursoController extends Controller
 {
     public function index()
     {
-        $teste = CursoModel::all();
-        dd($teste);
+
+        $cursos = $this->getAllCursos();
+
+
+        return view('cursos', compact('cursos'));
     }
+
+
+    public function getAllCursos()
+    {
+            $cursos = CursoModel::where('ativo', true)->orderBy('nome','ASC')->get();
+//            $cursos = CursoModel::all();
+        return $cursos;
+    }
+
 
 }

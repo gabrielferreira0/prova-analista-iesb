@@ -5,7 +5,7 @@ body {
 }
 
 
-#table_id {
+#table-cursos {
     color: #1a202c;
     font-weight: 700;
 }
@@ -16,7 +16,23 @@ body {
 
 }
 
-.card-hotels {
+.card-Cursos{
     background: #e7e8f2 !important;
     color: #1a202c;
+}
+
+
+#cursos-container {
+    height:100vh;
+}
+
+
+
+.excluir {
+    color: #ff2d20;
+}
+
+
+.recuperar {
+    color:#690;
 }

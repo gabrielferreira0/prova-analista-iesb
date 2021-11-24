@@ -21,7 +21,9 @@
 </head>
 
 <body>
-@yield('content')
+@yield('navbar')
+{{--@yield('content')--}}
+
 </body>
 
 </html>
