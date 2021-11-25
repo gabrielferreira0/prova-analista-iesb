@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [CursoController::class, 'index']);
 
 
-//Route::post('/hotels', [HotelController::class, 'getNearbyHotels']);
+Route::post('/curso', [CursoController::class, 'createOrUpdateCurso']);
+
+
+Route::get('/deleteCurso/{id}', [CursoController::class, 'deleteCurso']);

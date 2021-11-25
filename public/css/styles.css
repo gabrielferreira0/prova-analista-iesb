@@ -22,6 +22,10 @@ body {
 }
 
 
+#Modal-cursos {
+    color: #1a202c;
+}
+
 #cursos-container {
     height:100vh;
 }

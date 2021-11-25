@@ -12,7 +12,7 @@
                         @csrf
                         <input id="latitude" type="hidden" name="latitude">
                         <input id="longitude" type="hidden" name="longitude">
-                        <img src="svg/Hotel Booking-amico.svg" alt="banner_hotel">
+                        <img src="svg/Hotel Booking-amlatitudeco.svg" alt="banner_hotel">
                         <div class="d-flex justify-content-center">
                             <button type="button" onclick="getLocation()" class="btn button-list">Click here to list
                                 all
