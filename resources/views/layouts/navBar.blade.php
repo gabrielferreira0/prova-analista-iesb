@@ -13,7 +13,7 @@
                     <a class="nav-link" href="/">Cursos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Alunos</a>
+                    <a class="nav-link" href="/alunos">Alunos</a>
                 </li>
             </ul>
 

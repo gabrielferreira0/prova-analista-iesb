@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\AlunoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CursoController::class, 'index']);
 
+Route::get('/alunos', [AlunoController::class, 'index']);
+
 
 Route::post('/curso', [CursoController::class, 'createOrUpdateCurso']);
 
-
 Route::get('/deleteCurso/{id}', [CursoController::class, 'deleteCurso']);
+
+
+Route::post('/aluno', [AlunoController::class, 'createOrUpdateAluno']);
+
+Route::get('/deleteAluno/{id}', [AlunoController::class, 'deleteAluno']);

@@ -1,6 +1,6 @@
 $(document).ready(function () {
-
-
+    let CEP = $("#ender_CEP");
+    CEP.mask("99.999-999");
 
     $("#table-cursos").dataTable({
         "language": {
@@ -10,29 +10,27 @@ $(document).ready(function () {
     });
 });
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        $("#alertErro").html('"Your browser does not support Geolocation."').show().fadeOut(4000);
-    }
-}
 
 
+function carregarCEP() {
+    let CEP = $("#ender_CEP").val().replace(/[^\d]+/g, '')
+    $.ajax({
+        type: "GET",
+        dataType: 'text',
+        url: 'https://viacep.com.br/ws/' + CEP + '/json/',
+        async: true,
+        success: function (rs) {
+            rs = JSON.parse(rs);
+            $("#ender_cidade").val(rs['localidade']);
+            $("#ender_UF").val(rs['uf']);
 
-function showError(error) {
-    switch (error.code) {
-        case error.PERMISSION_DENIED:
-            $("#alertErro").html("User rejected a geolocation reques.").show().fadeOut(4000);
-            break;
-        case error.POSITION_UNAVAILABLE:
-            $("#alertErro").html("Location unavailable.").show().fadeOut(4000);
-            break;
-        case error.TIMEOUT:
-            $("#alertErro").html("The request expired.").show().fadeOut(4000);
-            break;
-        case error.UNKNOWN_ERROR:
-            $("#alertErro").html("Some unknown error happened.").show().fadeOut(4000);
-            break;
-    }
+
+            $("#ender_logradouro").val(rs['logradouro']);
+            $("#ender_complemento").val(rs['complemento']);
+            $("#ender_bairro").val(rs['bairro']);
+        },
+        error: function (e) {
+            bootbox.alert("<h2>Erro :(</h2><br/>Não foi possivel realizar essa operação.</br>");
+        }
+    });
 }

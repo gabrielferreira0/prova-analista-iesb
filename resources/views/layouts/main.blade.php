@@ -11,6 +11,9 @@
     <script src="/js/jquery/jquery.dataTables.min.js"></script>
     <script src="/js/bootstrap/popper.min.js"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="/js/jquery/jquery.mask.js"></script>
+
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/fontawesome/css/all.css">
     <link rel="stylesheet" href="/css/jquery/jquery.dataTables.min.css">

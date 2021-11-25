@@ -14,33 +14,39 @@ class CursoController extends Controller
 
         $cursos = $this->getAllCursos();
 
-
         return view('cursos', compact('cursos'));
     }
 
 
     public function getAllCursos()
     {
-            $cursos = CursoModel::where('ativo', true)->orderBy('nome','ASC')->get();
+        $cursos = CursoModel::where('ativo', true)->orderBy('nome', 'ASC')->get();
 //            $cursos = CursoModel::all();
         return $cursos;
     }
 
-    public function createCurso(Request $request){
+    public function createOrUpdateCurso(Request $request)
+    {
         $nomeCurso = $request->nomeCurso;
+        $idCurso = $request->idcurso;
 
-        $curso = new CursoModel();
+//firstOrNew  Verifica se já possui registro no banco para inserir ou atualizar
+
+        $curso = CursoModel::firstOrNew(
+            ['id' => $idCurso]
+        );
 
         $curso->nome = $nomeCurso;
         $curso->save();
 
-        Session::put('mensagem', 'Curso salvo com sucesso!');
+        Session::put('mensagem', 'Operação realizada com sucesso!');
         return redirect('/');
 
     }
 
 
-    public function deleteCurso($id) {
+    public function deleteCurso($id)
+    {
 
         $curso = CursoModel::find($id);
         $curso->ativo = false;
@@ -51,7 +57,8 @@ class CursoController extends Controller
 
     }
 
-    public function updateCurso($id,$nome) {
+    public function updateCurso($id, $nome)
+    {
 
         $curso = CursoModel::find($id);
         $curso->nome = false;
@@ -61,7 +68,6 @@ class CursoController extends Controller
         return redirect('/');
 
     }
-
 
 
 }

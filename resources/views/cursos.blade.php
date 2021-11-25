@@ -5,12 +5,15 @@
     <script>
         $(document).ready(function () {
             $('#Modal-cursos').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget) // Button that triggered the modal
-                var recipient = button.data('titulo') // Extract info from data-* attributes
-                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-                var modal = $(this)
+                let button = $(event.relatedTarget) // Button that triggered the modal
+                let idcurso = button.data('idcurso')
+                let nomeCurso = button.data('nomecurso')
+
+                let recipient = button.data('titulo')
+                let modal = $(this)
                 modal.find('#exampleModalLabel').text(recipient)
+                modal.find('#idcurso').val(idcurso)
+                modal.find('#nomeCurso').val(nomeCurso)
                 // modal.find('.modal-body input').val(recipient)
             })
         });
@@ -37,15 +40,15 @@
             <div class="col-md-12">
                 <div class="card card-Cursos d-flex justify-content-center">
                     <div class="card-header text-center">
-                        <h3>Cursos Disponíveis <i class="fas fa-university"></i></h3>
+                        <h3>Cursos Disponíveis <i class="fas fa-university fa-2x"></i></h3>
                     </div>
 
                     <div class="card-body text-center">
 
-                        <table class="table-responsive" id="table-cursos">
+                        <table class="table-responsive table-striped " id="table-cursos">
                             <thead>
                             <tr>
-                                <th scope="col">Código</th>
+                                <th scope="col">#Código</th>
                                 <th scope="col">Nome do Curso</th>
                                 <th scope="col">Excluir</th>
                                 <th scope="col">editar</th>
@@ -55,9 +58,13 @@
 
                             @forelse ($cursos as  $curso)
 
+
+
                                 <tr>
                                     <td>{{$curso['id']}} </td>
-                                    <td class="text-nowrap">{{$curso['nome']}} <i class="fas fa-graduation-cap"></i>
+                                    <td class="text-nowrap">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        {{$curso['nome']}}
                                     </td>
 
 
@@ -68,8 +75,8 @@
                                         </td>
                                     @endif
 
-                                    <td><a data-toggle="modal"  data-id={{$curso['id']}} data-target="#Modal-cursos"
-                                           data-titulo="Atualizar Curso" title="Editar" style="color:#1a202c;" href="#">
+                                    <td><a data-toggle="modal"  data-idcurso={{$curso['id']}} data-target="#Modal-cursos"
+                                           data-titulo="Atualizar Curso" data-nomecurso="{{$curso['nome']}}" title="Editar" style="color:#1a202c;" href="#">
                                             <i class="fas fa-edit"></i>
                                         </a></td>
                                 </tr>
@@ -116,15 +123,15 @@
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Nome do curso:</label>
                             <input type="text" class="form-control" name="nomeCurso" id="nomeCurso">
+                            <input type="hidden" class="form-control" name="idcurso" id="idcurso">
                         </div>
 
-                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
                 </form>
-
+                </div>
             </div>
         </div>
     </div>
