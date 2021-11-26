@@ -89,14 +89,17 @@
                             </tbody>
                         </table>
 
-                        <div  align="end" style="margin: 1rem">
+                            <a  href="relatorioCursos"  type="button" class="align-self-end btn btn-success">
+                                Gerar Relatório
+                                    <i style="font-size: 1.3rem;color: #1a202c"  class="fas fa-file-excel"></i>
+
+                            </a>
+
                             <button  type="button"  data-toggle="modal" data-target="#Modal-cursos"
                                      data-titulo="Adicionar novo Curso" class="align-self-end btn btn-success">
                                 Adicionar Curso
-                                <i class="fas fa-plus"></i>
+                                <i  style="font-size: 1.3rem;color: #1a202c"  class="fas fa-plus "></i>
                             </button>
-
-                        </div>
 
                     </div>
 

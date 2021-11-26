@@ -29,3 +29,8 @@ Route::get('/deleteCurso/{id}', [CursoController::class, 'deleteCurso']);
 Route::post('/aluno', [AlunoController::class, 'createOrUpdateAluno']);
 
 Route::get('/deleteAluno/{id}', [AlunoController::class, 'deleteAluno']);
+
+
+Route::get('/relatorioCursos', [CursoController::class, 'export']);
+
+

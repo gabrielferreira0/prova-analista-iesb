@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CursoExport;
 use App\Models\CursoModel;
 use Illuminate\Http\Request;
 use Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class CursoController extends Controller
@@ -68,6 +70,16 @@ class CursoController extends Controller
         return redirect('/');
 
     }
+
+    public function export()
+    {
+        return Excel::download(new CursoExport, 'relatorioCursos.xlsx');
+    }
+
+
+
+
+
 
 
 }

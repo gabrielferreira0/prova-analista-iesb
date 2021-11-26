@@ -5,6 +5,9 @@
     <script>
         $(document).ready(function () {
             $('#Modal-aluno').on('show.bs.modal', function (event) {
+                let modal = $(this)
+                modal.find('.teste').remove();
+
                 let button = $(event.relatedTarget) // Button that triggered the modal
                 let recipient = button.data('titulo')
                 let idaluno = button.data('idaluno')
@@ -20,13 +23,13 @@
                 let complementoAluno = button.data('complementoaluno')
                 let bairroAluno = button.data('bairroaluno')
 
-                let curso = '<option selected="selected" value="' + idcurso + '">' + cursoaluno + '</option>';
+                let curso = '<option class="teste" selected="selected" value="' + idcurso + '">' + cursoaluno + '</option>';
 
                 if(!cursoaluno) {
-                    curso = '<option selected="selected" value="">Selecione</option>';
+                    curso = '<option  class="teste" selected="selected" value="">Selecione</option>';
                 }
 
-                let modal = $(this)
+
                 modal.find('#exampleModalLabel').text(recipient)
                 modal.find('#idaluno').val(idaluno)
                 modal.find('#aluno_nome').val(nomealuno)
@@ -39,7 +42,7 @@
                 modal.find('#ender_logradouro').val(logradouroAluno)
                 modal.find('#ender_complemento').val(complementoAluno)
                 modal.find('#ender_bairro').val(bairroAluno)
-
+                modal.find('#teste').remove();
                 // modal.find('.modal-body input').val(recipient)
             })
         });
@@ -140,11 +143,18 @@
                             </tbody>
                         </table>
 
-                        <div align="end" style="margin: 1rem">
+                        <div  style="margin: 1rem">
+
+                            <button  type="button" class="align-self-end btn btn-success">
+                                Gerar Relatório
+                                <i style="font-size: 1.3rem;color: #1a202c"  class="fas fa-file-excel"></i>
+                            </button>
+
+
                             <button type="button" data-toggle="modal" data-target="#Modal-aluno"
                                     data-titulo="Adicionar novo Aluno" class="align-self-end btn btn-success">
                                 Adicionar Aluno
-                                <i class="fas fa-plus"></i>
+                                <i style="font-size: 1.3rem;color: #1a202c" class="fas fa-plus"></i>
                             </button>
 
                         </div>
