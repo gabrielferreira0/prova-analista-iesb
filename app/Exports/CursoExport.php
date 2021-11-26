@@ -23,8 +23,6 @@ class CursoExport implements FromCollection,WithHeadings
      */
     public function collection()
     {
-//        return CursoModel::all();
-
         return collect(CursoModel::SQLexcel());
     }
 }

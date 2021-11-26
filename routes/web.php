@@ -33,4 +33,6 @@ Route::get('/deleteAluno/{id}', [AlunoController::class, 'deleteAluno']);
 
 Route::get('/relatorioCursos', [CursoController::class, 'export']);
 
+Route::get('/relatorioAlunos', [CursoController::class, 'exportAlunos']);
+
 

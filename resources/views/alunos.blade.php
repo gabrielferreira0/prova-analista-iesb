@@ -48,7 +48,7 @@
         });
     </script>
 
-    <div id="cursos-container" class="container d-flex align-items-center justify-content-center">
+    <div id="cursos-container" class="container">
         <div class="">
 
             @if (Session::get('mensagem'))
@@ -66,7 +66,7 @@
             @endif
 
 
-            <div class="col-md-12">
+            <div class="col-md-10 col-sm-12 col-12 offset-md-1">
                 <div class="card card-Cursos d-flex justify-content-center">
                     <div class="card-header text-center">
                         <h3>Alunos Disponíveis <i class="fas fa-user-graduate fa-2x"></i></h3>
@@ -145,13 +145,14 @@
 
                         <div  style="margin: 1rem">
 
-                            <button  type="button" class="align-self-end btn btn-success">
+                            <a  style="margin: 10px" href="relatorioAlunos"  type="button" class="align-self-end btn btn-success">
                                 Gerar Relatório
                                 <i style="font-size: 1.3rem;color: #1a202c"  class="fas fa-file-excel"></i>
-                            </button>
+
+                            </a>
 
 
-                            <button type="button" data-toggle="modal" data-target="#Modal-aluno"
+                            <button style="margin:10px"  type="button" data-toggle="modal" data-target="#Modal-aluno"
                                     data-titulo="Adicionar novo Aluno" class="align-self-end btn btn-success">
                                 Adicionar Aluno
                                 <i style="font-size: 1.3rem;color: #1a202c" class="fas fa-plus"></i>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AlunosExport;
 use App\Exports\CursoExport;
 use App\Models\CursoModel;
 use Illuminate\Http\Request;
@@ -77,9 +78,9 @@ class CursoController extends Controller
     }
 
 
-
-
-
-
+    public function exportAlunos()
+    {
+        return Excel::download(new AlunosExport, 'relatorioAlunos.xlsx');
+    }
 
 }
